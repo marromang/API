@@ -9,7 +9,7 @@ Licence URI: http://www.os-templates.com/template-terms
 <html>
 <footer id="footer" class="clear"> 
       <!-- ################################################################################################ -->
-      <h1><a href="inicio">Volver al inicio</a></h1>
+      <h1><a href=" ">Volver al inicio</a></h1>
       <div class="one_half first">
         <h6 class="title">Sobre Music Locator</h6>
         <p class="nospace btmspace-20">En esta paǵina y mediante la api de la conocida web lastfm puedes realizar búsquedas de tus artistas favoritos, sus álbumes y listas.</p>
