@@ -9,7 +9,7 @@ url_heroku = 'https://musicinformator.herokuapp.com/'
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
 
-@route(url_heroku+'/')
+@route('/inicio')
 def inicio():
 	return template("inicio.tpl")
 
