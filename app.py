@@ -6,8 +6,7 @@ import requests
 
 
 url_base = 'http://ws.audioscrobbler.com/2.0/'
-key = 'ad04fc9cc834bab3ea1f3036e220e55e'
-#os.environ["KEY"]
+key = os.environ["KEY"]
 
 @route('/inicio')
 def inicio():
