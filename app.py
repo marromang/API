@@ -11,7 +11,7 @@ key = os.environ["KEY"]
 
 @route('/inicio')
 def inicio():
-	return template("inicio.tpl")
+	return template('inicio.tpl')
 
 @route('/artist', method = 'GET')
 def artist():
