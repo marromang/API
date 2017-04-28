@@ -8,9 +8,9 @@ import requests
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
 
-@route('/inicio')
+@route('/')
 def inicio():
-	return template('inicio.tpl')
+	return template("inicio.tpl")
 
 @route('/artist', method = 'GET')
 def artist():
