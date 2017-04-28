@@ -4,11 +4,11 @@ from lxml import etree
 #from oauthlib.oauth2 import TokenExpiredError
 import requests
 
-
+url_heroku = 'https://musicinformator.herokuapp.com/'
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
 
-@route('/')
+@route(url_heroku+'/')
 def inicio():
 	return template("inicio.tpl")
 
