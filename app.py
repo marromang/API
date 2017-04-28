@@ -5,13 +5,15 @@ from lxml import etree
 import requests
 import os
 
+bottle.debug(True)
+
 url_heroku = 'https://musicinformator.herokuapp.com/'
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
 
-@route('/inicio')
-def inicio():
-	return 'Hola'
+@route('/')
+def index():
+	return "<h1>Hola Mundo2!!!</h1>"
 
 @route('/artist', method = 'GET')
 def artist():
@@ -30,11 +32,11 @@ def artist():
 #@route('/album')
 #@route('/similar')
 #@route('/playlist')
-@route('/favicon.ico')
-def favicon():
-    return 'Hello'
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='static')
 
+if __name__ == '__main__':
+	run(host='0.0.0.0',port=argv[1])
