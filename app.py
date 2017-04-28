@@ -30,7 +30,9 @@ def artist():
 #@route('/album')
 #@route('/similar')
 #@route('/playlist')
-
+@route('/favicon.ico')
+def favicon():
+    return 'Hello'
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
