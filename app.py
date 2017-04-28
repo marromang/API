@@ -3,6 +3,7 @@ from lxml import etree
 #from requests_oauthlib import OAuth1, OAuth2Session
 #from oauthlib.oauth2 import TokenExpiredError
 import requests
+import os
 
 url_heroku = 'https://musicinformator.herokuapp.com/'
 url_base = 'http://ws.audioscrobbler.com/2.0/'
