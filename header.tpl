@@ -28,6 +28,6 @@ Licence URI: http://www.os-templates.com/template-terms
       <div id="logo" class="fl_left">
         <h1><a href="inicio">Music Informator</a></h1>
       </div>
-    
+  </div>    
       <!-- ################################################################################################ --> 
     </header>
