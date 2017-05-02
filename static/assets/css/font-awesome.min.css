@@ -89,7 +89,7 @@ animation : fa-spin 2s linear infinite;
 .fa-pulse {
 transform : rotate(0deg);
  }
-}
+
 @keyframes fa-spin {
 0% {
 transform : rotate(0deg);
