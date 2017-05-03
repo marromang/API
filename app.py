@@ -72,8 +72,50 @@ def songsCountry():
 		return template('songsCountry.tpl', country=country, art=art, tracks=tracks)
 		
 		
-#@route('/album')
-#@route('/similar')
+@route('/song', method='POST')
+def song():
+	song = request.forms.get('song')
+	art = request.forms.get('art')
+	met = 'track.getinfo'
+	
+	pub = ''
+	album = ''
+	data = ''
+	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
+	
+	if r.status_code == 200:
+		doc = json.loads(r.text)
+		album = doc["track"]["album"]["title"]
+		data = doc["track"]["wiki"]["summary"]
+		data = data.split("<a href")
+
+	return template('song.tpl', album=album, data=data, song=song)
+
+
+
+@route('/similar', method = 'POST')
+def similar():
+	artist = request.forms.get('similar')
+	met = 'artist.getsimilar'
+	similares = ''
+	links = ''
+	art = []
+	urls = []
+	r= requests.get(url_base+'?method=%s&artist=%s&api_key=%s&format=json' %(met, artist, key)) 
+
+	if r.status_code == 200:
+		doc = json.loads(r.text)
+		for i in xrange(0,10):
+			if i == 9:
+				similares = similares + doc["similarartists"]["artist"][i]["name"]
+				links = links + doc["similarartists"]["artist"][i]["url"]
+			else:
+				similares = similares + doc["similarartists"]["artist"][i]["name"]+','
+				links = links + doc["similarartists"]["artist"][i]["url"]+','
+		art = similares.split(',')
+		urls = links.split(',')
+		return template('similar.tpl',similar = art, urls = urls, artist=artist)
+
 #@route('/playlist')
 
 
