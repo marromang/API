@@ -9,8 +9,8 @@
 				<input value="Buscar artista" type="submit">
 		</form>
 		<br/>
-		<form action="artist" method="post"> 
-			Artistas similares a...: <input name="artist" type="text">
+		<form action="similar" method="post"> 
+			Artistas similares a...: <input name="similar" type="text">
 			<input value="Buscar artista" type="submit">
 		</form>
 		<br/>
