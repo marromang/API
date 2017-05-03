@@ -1,15 +1,66 @@
-from bottle import route, default_app, template, run, static_file, error, request
+from bottle import route, default_app, template, run, static_file, error, request, response,redirect
 from lxml import etree
-from sys import argv
-#from requests_oauthlib import OAuth1, OAuth2Session
-#from oauthlib.oauth2 import TokenExpiredError
+from requests_oauthlib import OAuth1
+from requests_oauthlib import OAuth2Session
+from oauthlib.oauth2 import TokenExpiredError
+from urlparse import parse_qs
 import requests
 import json
 import os
 
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
+redirect_uri = 'http://musicinformator.herokuapp.com/callback'
+scope = ['playlist-read-private', 'playlist-read-collaborative']
+token_url = "https://accounts.spotify.com/api/token"
+client_id='bcdc850df610404e8bd1e3572fa1001c'
+client_secret='1184d47c26fb40ee976230cabda426f1'
 
+def token_valido():
+  token=request.get_cookie("token", secret='some-secret-key')
+  if token:
+    token_ok = True
+    try:
+      oauth2 = OAuth2Session(client_id, token=token)
+      r = oauth2.get('https://www.googleapis.com/oauth2/v1/userinfo')
+    except TokenExpiredError as e:
+      token_ok = False
+  else:
+    token_ok = False
+  return token_ok
+
+@route('/login', method='GET')
+def LOGIN():
+  if token_valido():
+    redirect("/playlist")
+  else:
+    response.set_cookie("token", '',max_age=0)
+    oauth2 = OAuth2Session(client_id, redirect_uri=redirect_uri,scope=scope)
+    authorization_url, state = oauth2.authorization_url('https://accounts.spotify.com/authorize/')
+    response.set_cookie("oauth_state", state)
+    redirect(authorization_url)
+
+@route('/callback', method='GET')
+def get_token():
+  oauth2 = OAuth2Session(client_id, state=request.cookies.oauth_state,redirect_uri=redirect_uri)
+  token = oauth2.fetch_token(token_url, client_secret=client_secret,authorization_response=request.url)
+  response.set_cookie("token", token,secret='some-secret-key')
+  redirect("/playlist")
+
+@route('/playlist', method='GET')
+def personal():
+	token = request.get_cookie("token", secret='some-secret-key')
+	tokens = token["token_type"]+" "+token["access_token"]
+	headers = {"Accept":"aplication/json","Authorization":tokens}
+	perfil = requests.get("https://api.spotify.com/v1/me", headers=headers)
+	if perfil.status_code == 200:
+		cuenta = perfil.json()
+		cuenta = cuenta["id"]
+		url_playlists = "https://api.spotify.com/v1/users/"+str(cuenta)+"/playlists"
+	listas = requests.get(url_playlists, headers=headers)
+	if listas.status_code == 200:
+		playlists_usuario = listas.json()
+	return template('playlist.tpl', listas_usuario=playlists_usuario) 
 @route('/')
 def inicio():
 	return template('inicio.tpl')
@@ -115,8 +166,6 @@ def similar():
 		art = similares.split(',')
 		urls = links.split(',')
 		return template('similar.tpl',similar = art, urls = urls, artist=artist)
-
-#@route('/playlist')
 
 
 @route('/static/<filepath:path>')
