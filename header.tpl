@@ -21,12 +21,12 @@
         <div id="header">
 
           <!-- Logo -->
-            <h1><a href="inicio.tpl" id="logo">MUSIC INFORMATOR</a></h1>
+            <h1><a href="/" id="logo">MUSIC INFORMATOR</a></h1>
 
           <!-- Nav -->
             <nav id="nav">
               <ul>
-                <li class="current"><a href="inicio.tpl">Home</a></li>
+                <li class="current"><a href="/">Home</a></li>
             </nav>
 
         </div>
