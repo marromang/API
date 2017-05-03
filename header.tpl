@@ -26,7 +26,7 @@
           <!-- Nav -->
             <nav id="nav">
               <ul>
-                <li class="current"><a href="index.html">Home</a></li>
+                <li class="current"><a href="inicio.tpl">Home</a></li>
             </nav>
 
         </div>
