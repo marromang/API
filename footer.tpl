@@ -10,7 +10,14 @@
               <li><a href="https://github.com/marromang" class="icon fa-github"><span class="label">GitHub</span></a></li>
               
             </ul>
-
+            <p>
+<a href="http://css-validator.org/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://css-validator.org/images/vcss-blue.png"
+        alt="Valid CSS!" />
+</a>
+</p>
+        
           <!-- Copyright -->
             <div class="copyright">
               <ul class="menu">
