@@ -6,7 +6,7 @@
           <!-- Icons -->
             <ul class="icons">
               <li><a href="https://twitter.com/_blacky_birdy_" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="tps://www.facebook.com/maria.romero.564" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+              <li><a href="https://www.facebook.com/maria.romero.564" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
               <li><a href="https://github.com/marromang" class="icon fa-github"><span class="label">GitHub</span></a></li>
             </ul>
             <ul class="icons">
