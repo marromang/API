@@ -174,10 +174,9 @@ def similar():
 	doc = json.loads(r.text)
 	
 	if "error" in doc:
-		redirect('/error')
+		redirect("/error")
 		
 	else:
-		
 		for i in xrange(0,10):
 			if i == 9:
 				similares = similares + doc["similarartists"]["artist"][i]["name"]
