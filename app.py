@@ -110,7 +110,10 @@ def songsCountry():
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
 	
-	if r.status_code == 200:
+	if r.status_code != 200:
+		return template('error.tpl')
+		
+	else:
 		doc = json.loads(r.text)
 		for i in xrange(0,10):
 			if i == 9:
@@ -122,8 +125,6 @@ def songsCountry():
 		tracks = lista.split(',')
 		art = artista.split(',')
 		return template('songsCountry.tpl', country=country, art=art, tracks=tracks)
-	else:
-		return template('error.tpl')
 		
 @route('/song', method='POST')
 def song():
