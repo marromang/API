@@ -3,7 +3,7 @@
     <main class="container clear"> 
       <div class="group btmspace-80">
         <article>
-        <a href="/"><img src="http://giphy.com/gifs/quentin-tarantino-pulp-fiction-vincent-vega-3o7aTskHEUdgCQAXde"/></a>
+        <a href="/"><img src="https://media.giphy.com/media/3o7aTskHEUdgCQAXde/giphy.gif"/></a>
          <h3>Algo ha ido mal...</h3>
         </article>
       </div>
