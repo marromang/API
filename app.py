@@ -117,13 +117,9 @@ def songsCountry():
 	met = 'geo.gettoptracks'
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
-	doc = json.loads(r.text)
 	
-	if doc["error"]:
-		redirect('/error')
-		
-	else:
-		
+
+		doc = json.loads(r.text)
 		for i in xrange(0,10):
 			if i == 9:
 				lista =  lista + doc["tracks"]["track"][i]["name"]
@@ -191,6 +187,13 @@ def similar():
 @route('/error', method = 'GET')
 def error():
 	return template('error.tpl')
+
+@error(404)
+def error404(error):
+	 return template('/error.tpl')
+@error(500)
+def error500(error):
+    return template('/error.tpl')
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
