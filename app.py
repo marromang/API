@@ -73,8 +73,12 @@ def artist():
 	met = 'artist.getinfo'
 	r= requests.get(url_base+'?method=%s&artist=%s&api_key=%s&format=json' %(met, artist, key)) 
 
-	if r.status_code == 200:
-		doc = json.loads(r.text)
+	doc = json.loads(r.text)
+	
+	if doc["error"]:
+		redirect('/error')
+		
+	else:
 		bio  = doc["artist"]["bio"]["summary"]
 		bio = bio.split("<a href")
 		return template('artist.tpl', artist=artist, bio=bio)
@@ -88,8 +92,12 @@ def artistCountry():
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
 	
-	if r.status_code == 200:
-		doc = json.loads(r.text)
+	doc = json.loads(r.text)
+	
+	if doc["error"]:
+		redirect('/error')
+		
+	else:
 		for i in xrange(0,10):
 			if i == 9:
 				lista =  lista + doc["topartists"]["artist"][i]["name"]
@@ -138,7 +146,12 @@ def song():
 	data = ''
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
 	
-	if r.status_code == 200:
+	doc = json.loads(r.text)
+	
+	if doc["error"]:
+		redirect('/error')
+		
+	else:
 		doc = json.loads(r.text)
 		album = doc["track"]["album"]["title"]
 		data = doc["track"]["wiki"]["summary"]
@@ -158,7 +171,12 @@ def similar():
 	urls = []
 	r= requests.get(url_base+'?method=%s&artist=%s&api_key=%s&format=json' %(met, artist, key)) 
 
-	if r.status_code == 200:
+	doc = json.loads(r.text)
+	
+	if doc["error"]:
+		redirect('/error')
+		
+	else:
 		doc = json.loads(r.text)
 		for i in xrange(0,10):
 			if i == 9:
