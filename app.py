@@ -117,19 +117,17 @@ def songsCountry():
 	met = 'geo.gettoptracks'
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
-	
-
-		doc = json.loads(r.text)
-		for i in xrange(0,10):
-			if i == 9:
-				lista =  lista + doc["tracks"]["track"][i]["name"]
-				artista = artista  + doc["tracks"]["track"][i]["artist"]["name"]
-			else:
-				lista =  lista + doc["tracks"]["track"][i]["name"] + ','
-				artista = artista  + doc["tracks"]["track"][i]["artist"]["name"] + ','
-		tracks = lista.split(',')
-		art = artista.split(',')
-		return template('songsCountry.tpl', country=country, art=art, tracks=tracks)
+	doc = json.loads(r.text)
+	for i in xrange(0,10):
+		if i == 9:
+			lista =  lista + doc["tracks"]["track"][i]["name"]
+			artista = artista  + doc["tracks"]["track"][i]["artist"]["name"]
+		else:
+			lista =  lista + doc["tracks"]["track"][i]["name"] + ','
+			artista = artista  + doc["tracks"]["track"][i]["artist"]["name"] + ','
+	tracks = lista.split(',')
+	art = artista.split(',')
+	return template('songsCountry.tpl', country=country, art=art, tracks=tracks)
 		
 @route('/song', method='POST')
 def song():
