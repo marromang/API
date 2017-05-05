@@ -152,7 +152,7 @@ def song():
 		redirect('/error')
 		
 	else:
-		doc = json.loads(r.text)
+		
 		album = doc["track"]["album"]["title"]
 		data = doc["track"]["wiki"]["summary"]
 		data = data.split("<a href")
@@ -177,7 +177,7 @@ def similar():
 		redirect('/error')
 		
 	else:
-		doc = json.loads(r.text)
+		
 		for i in xrange(0,10):
 			if i == 9:
 				similares = similares + doc["similarartists"]["artist"][i]["name"]
