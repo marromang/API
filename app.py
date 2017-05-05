@@ -173,7 +173,7 @@ def similar():
 
 	doc = json.loads(r.text)
 	
-	if doc["error"]:
+	if "error" in doc:
 		redirect('/error')
 		
 	else:
