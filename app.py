@@ -109,12 +109,13 @@ def songsCountry():
 	met = 'geo.gettoptracks'
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
+	doc = json.loads(r.text)
 	
-	if r.status_code == 500:
+	if doc["error"]:
 		redirect('/error')
 		
 	else:
-		doc = json.loads(r.text)
+		
 		for i in xrange(0,10):
 			if i == 9:
 				lista =  lista + doc["tracks"]["track"][i]["name"]
