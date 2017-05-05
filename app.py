@@ -15,7 +15,7 @@ redirect_uri = 'http://musicinformator.herokuapp.com/callback'
 scope = ['playlist-read-private', 'playlist-read-collaborative']
 token_url = "https://accounts.spotify.com/api/token"
 client_id='bcdc850df610404e8bd1e3572fa1001c'
-client_secret='1184d47c26fb40ee976230cabda426f1'
+client_secret='58eaf9fe42df42cdb67cf397cdb7cdad'
 
 def token_valido():
   token=request.get_cookie("token", secret='some-secret-key')
