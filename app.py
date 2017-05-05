@@ -186,12 +186,7 @@ def similar():
 def error():
 	return template('error.tpl')
 
-@error(404)
-def error404(error):
-	 return template('/error.tpl')
-@error(500)
-def error500(error):
-    return template('/error.tpl')
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
