@@ -111,7 +111,7 @@ def songsCountry():
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
 	
 	if r.status_code == 500:
-		return template('error.tpl')
+		redirect('/error')
 		
 	else:
 		doc = json.loads(r.text)
@@ -170,6 +170,9 @@ def similar():
 		urls = links.split(',')
 		return template('similar.tpl',similar = art, urls = urls, artist=artist)
 
+@route('/error', method = 'POST')
+def error():
+	return template('error.tpl')
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
