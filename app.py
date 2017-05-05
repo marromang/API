@@ -110,7 +110,7 @@ def songsCountry():
 	
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
 	
-	if r.status_code != 200:
+	if r.status_code == 500:
 		return template('error.tpl')
 		
 	else:
