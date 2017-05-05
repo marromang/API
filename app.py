@@ -122,7 +122,8 @@ def songsCountry():
 		tracks = lista.split(',')
 		art = artista.split(',')
 		return template('songsCountry.tpl', country=country, art=art, tracks=tracks)
-		
+	else:
+		return template('error.tpl')
 		
 @route('/song', method='POST')
 def song():
