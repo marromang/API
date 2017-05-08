@@ -14,8 +14,8 @@ key = os.environ["KEY"]
 redirect_uri = 'http://musicinformator.herokuapp.com/callback'
 scope = ['playlist-read-private', 'playlist-read-collaborative']
 token_url = "https://accounts.spotify.com/api/token"
-client_id='bcdc850df610404e8bd1e3572fa1001c'
-client_secret='58eaf9fe42df42cdb67cf397cdb7cdad'
+client_id=os.environ["client_id"]
+client_secret=os.environ["client_secret"]
 
 def token_valido():
   token=request.get_cookie("token", secret='some-secret-key')
@@ -129,14 +129,14 @@ def song():
 	album = ''
 	data = ''
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
-	
-	doc = json.loads(r.text)
-	
-	album = doc["track"]["album"]["title"]
-	data = doc["track"]["wiki"]["summary"]
-	data = data.split("<a href")
-
-	return template('song.tpl', album=album, data=data, song=song)
+	if r.status_code != 200:
+		redirect("/error-")
+	else:
+		doc = json.loads(r.text)
+		album = doc["track"]["album"]["title"]
+		data = doc["track"]["wiki"]["summary"]
+		data = data.split("<a href")
+		return template('song.tpl', album=album, data=data, song=song)
 
 
 
