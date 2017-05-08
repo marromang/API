@@ -131,11 +131,11 @@ def song():
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
 	
 	doc = json.loads(r.text)
-	if !doc["track"]:
+	if error in doc:
 		return template('error.tpl')
 		
-	else:
-		doc = json.loads(r.text)
+	if track in doc:
+		
 		album = doc["track"]["album"]["title"]
 		data = doc["track"]["wiki"]["summary"]
 		data = data.split("<a href")
