@@ -133,7 +133,7 @@ def song():
 	doc = json.loads(r.text)
 	
 	if track in doc:
-		return template('error.tpl')
+		redirect("/error")
 		
 	else:
 		
