@@ -132,14 +132,9 @@ def song():
 	
 	doc = json.loads(r.text)
 	
-	if doc["error"]:
-		redirect('/error')
-		
-	else:
-		
-		album = doc["track"]["album"]["title"]
-		data = doc["track"]["wiki"]["summary"]
-		data = data.split("<a href")
+	album = doc["track"]["album"]["title"]
+	data = doc["track"]["wiki"]["summary"]
+	data = data.split("<a href")
 
 	return template('song.tpl', album=album, data=data, song=song)
 
