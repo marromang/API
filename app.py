@@ -131,16 +131,10 @@ def song():
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
 	
 	doc = json.loads(r.text)
-	
-	if track in doc:
-		return template('error.tpl')
-		
-	else:
-		
-		album = doc["track"]["album"]["title"]
-		data = doc["track"]["wiki"]["summary"]
-		data = data.split("<a href")
-		return template('song.tpl', album=album, data=data, song=song)
+	album = doc["track"]["album"]["title"]
+	data = doc["track"]["wiki"]["summary"]
+	data = data.split("<a href")
+	return template('song.tpl', album=album, data=data, song=song)
 
 
 @route('/similar', method = 'POST')
@@ -165,10 +159,6 @@ def similar():
 	art = similares.split(',')
 	urls = links.split(',')
 	return template('similar.tpl',similar = art, urls = urls, artist=artist)
-
-@route('/error', method = 'POST')
-def error():
-	return template('error.tpl')
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
