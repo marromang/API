@@ -76,7 +76,7 @@ def artist():
 	doc = json.loads(r.text)
 	bio  = doc["artist"]["bio"]["summary"]
 	if bio == ":":
-		redirect ("/error")
+		return template('error.tpl')
 	else:
 		bio = bio.split("<a href")
 		return template('artist.tpl', artist=artist, bio=bio)
