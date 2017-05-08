@@ -48,7 +48,7 @@ def get_token():
   response.set_cookie("token", token,secret='some-secret-key')
   redirect("/playlist")
 
-@route('/playlist', method='POST')
+@route('/playlist', method='GET')
 def personal():
 	token = request.get_cookie("token", secret='some-secret-key')
 	tokens = token["token_type"]+" "+token["access_token"]
@@ -61,6 +61,11 @@ def personal():
 	listas = requests.get(url_playlists, headers=headers)
 	if listas.status_code == 200:
 		playlists_usuario = listas.json()
+	return template('playlist.tpl', listas_usuario=playlists_usuario) 
+
+@route('/playlist/<playlists_usuario>', method='POST')
+def playPost(playlists_usuario):
+	playlists_usuario
 	return template('playlist.tpl', listas_usuario=playlists_usuario) 
 @route('/')
 def inicio():
