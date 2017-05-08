@@ -76,11 +76,7 @@ def artist():
 	doc = json.loads(r.text)
 	bio  = doc["artist"]["bio"]["summary"]
 	bio = bio.split("<a href")
-	
-	if bio == "":
-		 redirect("/error")
-	else:
-		return template('artist.tpl', artist=artist, bio=bio)
+	return template('artist.tpl', artist=artist, bio=bio)
 
 @route('/artistCountry', method = 'POST')
 def artistCountry():
@@ -92,16 +88,11 @@ def artistCountry():
 	r= requests.get(url_base+'?method=%s&country=%s&api_key=%s&format=json' %(met, country, key))
 	
 	doc = json.loads(r.text)
-	
-	if doc["error"]:
-		redirect('/error')
-		
-	else:
-		for i in xrange(0,10):
-			if i == 9:
-				lista =  lista + doc["topartists"]["artist"][i]["name"]
-			else:
-				lista =  lista + doc["topartists"]["artist"][i]["name"] + ','
+	for i in xrange(0,10):
+		if i == 9:
+			lista =  lista + doc["topartists"]["artist"][i]["name"]
+		else:
+			lista =  lista + doc["topartists"]["artist"][i]["name"] + ','
 			
 		
 	art = lista.split(',')
@@ -166,26 +157,20 @@ def similar():
 
 	doc = json.loads(r.text)
 	
-	if "error" in doc:
-		redirect("/error")
-		
-	else:
-		for i in xrange(0,10):
-			if i == 9:
-				similares = similares + doc["similarartists"]["artist"][i]["name"]
-				links = links + doc["similarartists"]["artist"][i]["url"]
-			else:
-				similares = similares + doc["similarartists"]["artist"][i]["name"]+','
-				links = links + doc["similarartists"]["artist"][i]["url"]+','
-		art = similares.split(',')
-		urls = links.split(',')
-		return template('similar.tpl',similar = art, urls = urls, artist=artist)
+	for i in xrange(0,10):
+		if i == 9:
+			similares = similares + doc["similarartists"]["artist"][i]["name"]
+			links = links + doc["similarartists"]["artist"][i]["url"]
+		else:
+			similares = similares + doc["similarartists"]["artist"][i]["name"]+','
+			links = links + doc["similarartists"]["artist"][i]["url"]+','
+	art = similares.split(',')
+	urls = links.split(',')
+	return template('similar.tpl',similar = art, urls = urls, artist=artist)
 
 @route('/error', method = 'POST')
 def error():
 	return template('error.tpl')
-
-
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
