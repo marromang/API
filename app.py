@@ -60,7 +60,7 @@ def personal():
 		url_playlists = "https://api.spotify.com/v1/users/"+str(cuenta)+"/playlists"
 	listas = requests.get(url_playlists, headers=headers)
 	if listas.status_code == 200:
-		playlists_usuario = json.loads(listas.text)
+		playlists_usuario = listas.json()
 	return template('playlist.tpl', listas_usuario=playlists_usuario) 
 @route('/')
 def inicio():
