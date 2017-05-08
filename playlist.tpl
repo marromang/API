@@ -7,7 +7,7 @@
       <select id="nombre" name="nombre">
       %for lista in listas_usuario['items']:
           <li>{{lista["tracks"]["href"]}}</li>
-	  #{{lista["name"]}}
+	 
       %end
       </select>
       <input type="submit" value="Continuar">
