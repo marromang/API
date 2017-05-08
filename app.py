@@ -75,13 +75,9 @@ def artist():
 
 	doc = json.loads(r.text)
 	
-	if doc["error"]:
-		redirect('/error')
-		
-	else:
-		bio  = doc["artist"]["bio"]["summary"]
-		bio = bio.split("<a href")
-		return template('artist.tpl', artist=artist, bio=bio)
+	bio  = doc["artist"]["bio"]["summary"]
+	bio = bio.split("<a href")
+	return template('artist.tpl', artist=artist, bio=bio)
 
 @route('/artistCountry', method = 'POST')
 def artistCountry():
