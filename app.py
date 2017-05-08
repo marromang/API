@@ -129,8 +129,9 @@ def song():
 	album = ''
 	data = ''
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
+	print r
 	if r.status_code != 200:
-		redirect("/error-")
+		redirect("/error")
 	else:
 		doc = json.loads(r.text)
 		album = doc["track"]["album"]["title"]
