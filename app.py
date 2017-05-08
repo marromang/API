@@ -11,7 +11,7 @@ import os
 
 url_base = 'http://ws.audioscrobbler.com/2.0/'
 key = os.environ["KEY"]
-redirect_uri = 'http://musicinformator.herokuapp.com/callback'
+redirect_uri = 'https://musicinformator.herokuapp.com/callback'
 scope = ['playlist-read-private', 'playlist-read-collaborative']
 token_url = "https://accounts.spotify.com/api/token"
 client_id=os.environ["client_id"]
