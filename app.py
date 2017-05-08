@@ -61,13 +61,10 @@ def personal():
 	listas = requests.get(url_playlists, headers=headers)
 	if listas.status_code == 200:
 		playlists_usuario = listas.json()
-		print playlists_usuario
-		return template('playlist.tpl', listas_usuario=playlists_usuario)
+		return template('prueba.tpl', listas_usuario=playlists_usuario)
+		#return template('playlist.tpl', listas_usuario=playlists_usuario)
 
-@route('/playlist/<playlists_usuario>', method='POST')
-def playPost(playlists_usuario):
-	playlists_usuario
-	return template('playlist.tpl', listas_usuario=playlists_usuario) 
+
 @route('/')
 def inicio():
 	return template('inicio.tpl')
