@@ -4,10 +4,8 @@
     <main class="container clear"> 
       <div class="group btmspace-80">
         <article>
-         <h3>Biografía de {{artist}}.</h3>
-         %for b in {{bio}}:
-                 <h1>b</h1>
-                %end
+         <h3>Biografía de {{artist}}. </h3>
+         <p> {{bio[0]}} </p>
 
         </article>
       </div>
