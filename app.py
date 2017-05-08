@@ -131,7 +131,8 @@ def song():
 	r= requests.get(url_base+'?method=%s&api_key=%s&artist=%s&track=%s&format=json' %(met, key, art,song))
 	
 	doc = json.loads(r.text)
-	if error in doc:
+	datos=json.parse('{"error"}')
+	if datos.error == undefined:
 		return template('error.tpl')
 		
 	else:
