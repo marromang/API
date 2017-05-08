@@ -8,8 +8,7 @@
          
          		<h3>Pertenece al album {{album}}</h3>
                 <h3>Historia</h3>
-                %for i in xrange(0,len(data)):
-                 <h1>{{data[0]}}</h1>
+                 <p>{{data[0]}}</p>
                 %end
          
         </article>
