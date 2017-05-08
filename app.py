@@ -78,7 +78,7 @@ def artist():
 	bio = bio.split("<a href")
 	
 	if bio == " ":
-		return template('error.tpl')
+		 redirect("/error")
 	else:
 		return template('artist.tpl', artist=artist, bio=bio)
 
@@ -181,7 +181,7 @@ def similar():
 		urls = links.split(',')
 		return template('similar.tpl',similar = art, urls = urls, artist=artist)
 
-@route('/error', method = 'GET')
+@route('/error', method = 'POST')
 def error():
 	return template('error.tpl')
 
