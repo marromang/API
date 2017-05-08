@@ -3,7 +3,7 @@
 <div class="wrapper row3">
 <main class="container clear"> 
 	<article>
-		<a href="/login"><img src="static/imagenes/spotify_login400x400.png" alt= Acceder con Spotify" width='10%' ></a>
+		
 		<form action="artist" method="post"> 
 			Artista a buscar: <input name="artist" type="text">
 				<input value="Buscar artista" type="submit">
@@ -29,6 +29,8 @@
 			Mejores canciones por país: <input name="songsCountry" type="text">
 				<input value="Buscar pais" type="submit">
 		</form>
+		
+		<a href="/login"><img src="static/img/spotify_login400x400.png" alt= Ver mis listas de Spotify" width='10%' ></a>
 	</article>
 	
 </div>
