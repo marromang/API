@@ -1,1 +1,1 @@
-print {{listas_usuario}}
+{{listas_usuario}}
