@@ -61,8 +61,7 @@ def personal():
 	listas = requests.get(url_playlists, headers=headers)
 	if listas.status_code == 200:
 		playlists_usuario = json.loads(listas.text)
-		return template('prueba.tpl', listas_usuario=playlists_usuario)
-		#return template('playlist.tpl', listas_usuario=playlists_usuario)
+		return template('playlist.tpl', listas_usuario=playlists_usuario)
 
 
 @route('/')
