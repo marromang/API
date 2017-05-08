@@ -48,7 +48,7 @@ def get_token():
   response.set_cookie("token", token,secret='some-secret-key')
   redirect("/playlist")
 
-@route('/playlist')
+@route('/playlist', method='POST')
 def personal():
 	token = request.get_cookie("token", secret='some-secret-key')
 	tokens = token["token_type"]+" "+token["access_token"]
