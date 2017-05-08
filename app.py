@@ -76,10 +76,10 @@ def artist():
 	doc = json.loads(r.text)
 	bio  = doc["artist"]["bio"]["summary"]
 	bio = bio.split("<a href")
+	
 	if bio == " ":
 		return template('error.tpl')
 	else:
-		
 		return template('artist.tpl', artist=artist, bio=bio)
 
 @route('/artistCountry', method = 'POST')
