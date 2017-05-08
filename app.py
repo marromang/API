@@ -74,12 +74,10 @@ def artist():
 	r= requests.get(url_base+'?method=%s&artist=%s&api_key=%s&format=json' %(met, artist, key)) 
 
 	doc = json.loads(r.text)
-	if doc["artist"]["bio"]["summary"] == "":
-		return template('error.tpl')
-	else:
-		bio  = doc["artist"]["bio"]["summary"]
-		bio = bio.split("<a href")
-		return template('artist.tpl', artist=artist, bio=bio)
+	
+	bio  = doc["artist"]["bio"]["summary"]
+	bio = bio.split("<a href")
+	return template('artist.tpl', artist=artist, bio=bio)
 
 @route('/artistCountry', method = 'POST')
 def artistCountry():
