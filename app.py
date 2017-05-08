@@ -134,7 +134,7 @@ def song():
 	if error in doc:
 		return template('error.tpl')
 		
-	if track in doc:
+	else:
 		
 		album = doc["track"]["album"]["title"]
 		data = doc["track"]["wiki"]["summary"]
