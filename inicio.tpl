@@ -30,7 +30,7 @@
 				<input value="Buscar pais" type="submit">
 		</form>
 		
-		<a href="/login"><img src="static/spotify_login400x400.png" alt= Ver mis listas de Spotify" width='10%' ></a>
+		<a href="/login"><img src="/static/spotify_login400x400.png" alt= Ver mis listas de Spotify" width='10%' /></a>
 	</article>
 	
 </div>
