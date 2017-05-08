@@ -75,7 +75,7 @@ def artist():
 
 	doc = json.loads(r.text)
 	bio  = doc["artist"]["bio"]["summary"]
-	if bio == " ":
+	if bio == ":":
 		redirect ('/error')
 	else:
 		bio = bio.split("<a href")
