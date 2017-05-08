@@ -1,4 +1,4 @@
-from bottle import route, default_app, template, run, static_file, error, request, response,redirect
+from bottle import *
 from lxml import etree
 from sys import argv
 from requests_oauthlib import OAuth1
@@ -48,7 +48,7 @@ def get_token():
   response.set_cookie("token", token,secret='some-secret-key')
   redirect("/playlist")
 
-@route('/playlist', method='GET')
+@get('/playlist')
 def personal():
 	token = request.get_cookie("token", secret='some-secret-key')
 	tokens = token["token_type"]+" "+token["access_token"]
