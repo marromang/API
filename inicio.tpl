@@ -29,8 +29,8 @@
 			Mejores canciones por país: <input name="songsCountry" type="text">
 				<input value="Buscar pais" type="submit">
 		</form>
-		
-		<a href="/login"><img src="static/spotify.png" alt= Ver mis listas de Spotify" width='10%' /></a>
+		</br>
+		<a href="/login"><img src="static/spotify.png" alt= Ver mis listas de Spotify" width='10%' ></a>
 	</article>
 	
 </div>
