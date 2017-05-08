@@ -77,7 +77,7 @@ def artist():
 	bio  = doc["artist"]["bio"]["summary"]
 	bio = bio.split("<a href")
 	
-	if bio == " ":
+	if bio == "":
 		 redirect("/error")
 	else:
 		return template('artist.tpl', artist=artist, bio=bio)
