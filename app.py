@@ -166,7 +166,7 @@ def similar():
 	urls = links.split(',')
 	return template('similar.tpl',similar = art, urls = urls, artist=artist)
 
-@route('/error', method = 'GET')
+@route('/error', method = 'POST')
 def error():
 	return template('error.tpl')
 
