@@ -8,32 +8,33 @@
 			Artista a buscar: <input name="artist" type="text">
 				<input value="Buscar artista" type="submit">
 		</form>
-		</br>
+		<br/>
 		<form action="similar" method="post"> 
 			Artistas similares a...: <input name="similar" type="text">
 			<input value="Buscar artista" type="submit">
 		</form>
-		</br>
+		<br/>
 		<form action="song" method="post"> 
 			Nombre de la cancion: <input name="song" type="text"> 	
 			Artista: <input name="art" type="text">
 				<input value="Buscar canción" type="submit">
 		</form>
-		</br>
+		<br/>
 		<form action="artistCountry" method="post"> 
 			Mejores artistas por país: <input name="artistCountry" type="text">
 				<input value="Buscar pais" type="submit">
 		</form>
-		</br>
+		<br/>
 		<form action="songsCountry" method="post"> 
 			Mejores canciones por país: <input name="songsCountry" type="text">
 				<input value="Buscar pais" type="submit">
 		</form>
-		</br>
-		<a href="/login"><img src="static/spotify.png"/></a>
+		<br/>
+		<a href="/login"><img src="static/spotify.png"></a>
 		<p>Quiero ver mis playlists.</p>
 	</article>
 	
 </div>
+</main>
 </body>
 %include('footer.tpl')
