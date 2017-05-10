@@ -4,7 +4,7 @@
     <main class="container clear"> 
       <div class="group btmspace-80">
         <article>
-         <h3>Biografía de {{artist}}. </h3>
+         <h3>{{artist}} bio</h3>
          <p> {{bio[0]}} </p>
 
         </article>
