@@ -7,7 +7,7 @@
          <h1>Similar to {{artist}}</h1>
          <ul>
          		%for s,u in zip(similar, urls):
-                    <li>{{s}} - {{u}}</li>
+                    <li><a href="{{u}}">{{s}}</a></li>
                 %end
          </ul>
         </article>
