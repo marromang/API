@@ -36,5 +36,5 @@
 </main>	
 </div>
 
-</body>
+
 %include('footer.tpl')
