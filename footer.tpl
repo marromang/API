@@ -1,18 +1,15 @@
 <div id="footer">
-    
-
-          <!-- Icons -->
-            <ul class="icons">
-              <li><a href="https://twitter.com/_blacky_birdy_" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-              <li><a href="https://www.facebook.com/maria.romero.564" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-              <li><a href="https://github.com/marromang" class="icon fa-github"><span class="label">GitHub</span></a></li>
-            </ul>
-            <ul class="icons">
-                
+         <!-- Icons -->
+          <ul class="icons">
+             <li><a href="https://twitter.com/_blacky_birdy_" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+             <li><a href="https://www.facebook.com/maria.romero.564" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+             <li><a href="https://github.com/marromang" class="icon fa-github"><span class="label">GitHub</span></a></li>
+           </ul>
+           <ul class="icons">     
                    <li><a href="http://css-validator.org/check/referer">
                         <img style="border:0;width:88px;height:31px" src="http://css-validator.org/images/vcss-blue.png" alt="Valid CSS!" /></a></li>
                 
-            </ul>      
+           </ul>      
           <!-- Copyright -->
             <div class="copyright">
               <ul class="menu">
@@ -20,5 +17,4 @@
               </ul>
             </div>
 </div>
-        </div>
 </html>
