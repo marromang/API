@@ -35,4 +35,5 @@
 	</article>
 	
 </div>
+</body>
 %include('footer.tpl')
