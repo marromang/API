@@ -28,6 +28,7 @@
             <nav id="nav">
               <ul>
                 <li class="current"><a href="/">Home</a></li>
+               </ul>
             </nav>
 
         </div>
