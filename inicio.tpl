@@ -33,8 +33,8 @@
 		<a href="/login"><img src="static/spotify.png"></a>
 		<p>Quiero ver mis playlists.</p>
 	</article>
-	
+</main>	
 </div>
-</main>
+
 </body>
 %include('footer.tpl')
