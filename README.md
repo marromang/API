@@ -6,7 +6,7 @@ Objetivos, descripción y funcionalidad del proyecto:
  La aplicación generará una lista con los  conciertos próximos de una cierta banda o en un cierto lugar y generará una lista con los playlist de ese artista. Me gustaría si el tiempo lo permite mostrar la 
  lista acompañada de un mapa. 
 
-URL de la página web:
++
  https://concertlocator.herokuapp.com/
 
 ¿Cuántas API web vas a usar en el proyecto?:
