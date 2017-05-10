@@ -4,7 +4,7 @@
     <main class="container clear"> 
       <div class="group btmspace-80">
         <article>
-      		<h3> Tus listas </h3>
+      		<h3> Your playlists </h3>
 		<ol>
       		%for lista in listas_usuario['items']:
       	 		<li><a href="{{lista["external_urls"]["spotify"]}}" >{{lista["name"]}}</a></li>
