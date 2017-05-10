@@ -8,10 +8,10 @@
               <li><a href="https://github.com/marromang" class="icon fa-github"><span class="label">GitHub</span></a></li>
             </ul>
             <ul class="icons">
-                <p>
+                
                    <li><a href="http://css-validator.org/check/referer">
                         <img style="border:0;width:88px;height:31px" src="http://css-validator.org/images/vcss-blue.png" alt="Valid CSS!" /></a></li>
-                </p>
+                
             </ul>      
           <!-- Copyright -->
             <div class="copyright">
