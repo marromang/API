@@ -129,7 +129,7 @@ def similar():
 	return template('similar.tpl',similar = art, urls = urls, artist=artist)
 
 @route('/login', method='GET')
-def LOGIN():
+def login():
   if token_valido():
     redirect("/playlist")
   else:
